@@ -1,7 +1,6 @@
 # sell
 
 > learn-vue
-text_2
 
 ## Build Setup
 

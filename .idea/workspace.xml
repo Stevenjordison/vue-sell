@@ -73,8 +73,8 @@
       <file leaf-file-name="status-icon.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/iconMap/status-icon.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            <state relative-caret-position="405">
+              <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -515,12 +515,12 @@
       <workItem from="1490062578165" duration="428000" />
       <workItem from="1490065320467" duration="1724000" />
       <workItem from="1490076648967" duration="248000" />
-      <workItem from="1490076999550" duration="52914000" />
+      <workItem from="1490076999550" duration="53721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55314000" />
+    <option name="totallyTimeSpent" value="56121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-620" width="975" height="620" extended-state="0" />
@@ -949,8 +949,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/iconMap/status-icon.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="405">
+          <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
           <folding />
         </state>
       </provider>

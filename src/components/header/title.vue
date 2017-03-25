@@ -26,5 +26,4 @@
       padding 0 12px
       font-weight: 700
       font-size 14px
-
 </style>

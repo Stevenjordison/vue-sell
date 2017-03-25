@@ -13,7 +13,7 @@
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
         <div class="support">
-          <icon-map :iconType="seller.supports[0].type" :iconTheme="1"></icon-map>
+          <icon-map :iconType="seller.supports[0].type" :iconTheme="0"></icon-map>
           <!--<span class="icon" :class="classMap[seller.supports[0].type]"></span>-->
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
@@ -43,7 +43,7 @@
             <bg-title name="优惠信息"></bg-title>
             <ul v-if="seller.supports" class="supports">
               <li v-for="(item,index) in seller.supports" class="supports-item">
-                <icon-map :iconType="seller.supports[index].type"></icon-map>
+                <icon-map :iconType="seller.supports[index].type" :iconTheme="1"></icon-map>
                 <span class="text">{{seller.supports[index].description}}</span>
               </li>
             </ul>
@@ -241,7 +241,7 @@
                 vertical-align: top
                 margin-right 6px
               .text
-                line-height 12px
+                line-height 16px
                 font-size 12px
           .bulletin
             width 80%

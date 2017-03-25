@@ -1,9 +1,7 @@
 <template>
-  <span class="iconMap" :class="classMap[iconType],map_n[iconTheme]"></span>
+  <span class="iconMap" :class="[classMap[iconType], map_n[iconTheme]]"></span>
 </template>
-/usr/bin/ssh-add
 
-来自: http://man.linuxde.net/ssh-add
 <script type="text/ecmascript-6">
   export default {
     props: {
@@ -23,14 +21,26 @@
     display inline-block
     background-size 100% 100%
     background-repeat no-repeat
-    &.decrease
-      bg-image('decrease_4')
-    &.discount
-      bg-image('discount_4')
-    &.guarantee
-      bg-image('guarantee_4')
-    &.invoice
-      bg-image('invoice_4')
-    &.special
-      bg-image('special_4')
+    &.map_a
+      &.decrease
+        bg-image('decrease_2')
+      &.discount
+        bg-image('discount_2')
+      &.guarantee
+        bg-image('guarantee_2')
+      &.invoice
+        bg-image('invoice_2')
+      &.special
+        bg-image('special_2')
+    &.map_b
+      &.decrease
+        bg-image('decrease_4')
+      &.discount
+        bg-image('discount_4')
+      &.guarantee
+        bg-image('guarantee_4')
+      &.invoice
+        bg-image('invoice_4')
+      &.special
+        bg-image('special_4')
 </style>

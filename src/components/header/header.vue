@@ -254,4 +254,6 @@
         margin -64px auto 0
         clear both
         font-size 32px
+      .test
+        position fixed
 </style>

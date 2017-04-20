@@ -12,12 +12,12 @@
         <router-link to="/seller">商家</router-link>
       </div>
     </div>
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import header from 'components/header/header.vue';
+  import mainHeader from 'components/header/header.vue';
 
   const ERR_OK = 0;
 
@@ -32,12 +32,11 @@
         response = response.body;
         if (response.errno === ERR_OK) {
           this.seller = response.data;
-          console.log(this.seller);
         }
       });
     },
     components: {
-      'main-header': header
+      mainHeader
     }
   };
 </script>

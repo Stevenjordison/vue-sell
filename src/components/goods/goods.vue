@@ -2,7 +2,7 @@
   <div class="goods">
     <div class="menu-wrapper" ref="menuWrapper">
       <ul>
-        <li v-for="(item,index) in goods" class="menu-item" :class="currentIndex===index?'current':menu-item"
+        <li v-for="(item,index) in goods" class="menu-item" :class="currentIndex===index?'current':'menu-item'"
             @click="selectMenu(index,$event)">
           <span class="text border-1px">
             <icon-map v-show="item.type>0" :iconType="item.type" :iconTheme="1"></icon-map>
@@ -13,10 +13,10 @@
     </div>
     <div class="foods-wrapper" ref="foodsWrapper">
       <ul>
-        <li v-for="item in goods" class="food-list food-list-hook">
+        <li v-for="item in goods" class="food-list food-list-hook" >
           <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li v-for="food in item.foods" class="food-item border-1px">
+            <li v-for="food in item.foods" class="food-item border-1px" @click="goDetail(food)">
               <div class="icon"><img width="57" height="57" :src="food.icon"></div>
               <div class="content">
                 <h2 class="name">{{food.name}}</h2>
@@ -28,20 +28,30 @@
                   <span class="now">￥{{food.price}}</span><span class="old"
                                                                 v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
+                <div class="wrapper-cartcontrol">
+                  <cartcontrol :food="food"></cartcontrol>
+                </div>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
+    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice"
+              :min-price="seller.minPrice"></shopcart>
+    <foodDetail :food="selectFood" ref="myFood"></foodDetail>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import iconMap from 'components/iconMap/status-icon';
   import BScroll from 'better-scroll';
-
+  import shopcart from 'components/shopcart/shopcart';
+  import cartcontrol from 'components/cartcontrol/cartcontrol';
+  import foodDetail from 'components/food/food';
+  //  import Vue from 'vue';
   const ERR_OK = 0;
+  //  const eventHub = new Vue();
 
   export default {
     props: {
@@ -53,7 +63,9 @@
       return {
         goods: [],
         listHeight: [],
-        scrollY: 0
+        scrollY: 0,
+        menu: '',
+        selectFood: {}
       };
     },
     computed: {
@@ -66,6 +78,17 @@
           }
         }
         return 0;
+      },
+      selectFoods() {
+        let foods = [];
+        this.goods.forEach((good) => {
+          good.foods.forEach((food) => {
+            if (food.count) {
+              foods.push(food);
+            }
+          });
+        });
+        return foods;
       }
     },
     created() {
@@ -90,13 +113,16 @@
         let el = foodList[index];
         this.foodsScroll.scrollToElement(el, 300);
       },
+      _drop(target) {
 
+      },
       _initScroll() {
         this.menuScroll = new BScroll(this.$refs.menuWrapper, {
           click: true
         });
 
         this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+          click: true,
           probeType: 3
         });
 
@@ -113,10 +139,19 @@
           height += item.clientHeight;
           this.listHeight.push(height);
         }
+      },
+      goDetail(food) {
+        this.selectFood = food;
+        console.log(this.selectFood);
+
+        this.$refs.myFood.showToggle();
       }
     },
     components: {
-      iconMap
+      iconMap,
+      shopcart,
+      cartcontrol,
+      foodDetail
     }
   };
 </script>
@@ -226,6 +261,11 @@
               font-size 10px
               color rgb(147, 153, 159)
             }
+          }
+          .wrapper-cartcontrol {
+            position: absolute;
+            right 0
+            bottom 12px
           }
         }
       }

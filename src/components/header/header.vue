@@ -196,7 +196,7 @@
       filter blur(10px)
     .detail
       position: fixed
-      z-index 99
+      z-index 999
       top: 0
       left: 0
       width 100%
@@ -254,4 +254,6 @@
         margin -64px auto 0
         clear both
         font-size 32px
+      .test
+        position fixed
 </style>

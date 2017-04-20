@@ -38,6 +38,9 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  data: {
+    eventHub: new Vue()
+  },
   template: '<App/>',
   components: {App},
   render: h => h(App)
